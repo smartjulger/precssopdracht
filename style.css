@@ -17,22 +17,22 @@ img {
   border-radius: 2rem;
   padding: 1rem;
 }
-
+/* wordt alleen gebruikt als de browser de animation support */
 @supports (animation-timeline: scroll()) {
   div:nth-child(odd) {
     transform: translateY(calc(-100% + 100vh));
   }
-
+/* content word niet getoont clip maakt er geen nieuwe scroll container van */
   section {
     overflow-y: clip;
   }
 }
-
+/* root helepagine block= de vertical as omhoog en omlaag scrollen forward zorgt ervoor dat het op het einde blijft staan*/
 div:nth-child(odd) {
   animation: adjust-position linear forwards;
   animation-timeline: scroll(root block);
 }
-
+/* calc berekent de hoogte tot de div en de hoogte van het scherm */
 @keyframes adjust-position {
   from {
     transform: translateY(calc(-100% + 100vh));
